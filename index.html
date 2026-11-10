@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio: Jarupat Khaohomklin — MarTech & Ads</title>
+    <title>Jarupat Khaohomklin — Portfolio</title>
+    <meta name="description" content="Performance marketer and builder of AI-assisted internal tools. Case studies and campaign results.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Thai:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Thai:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <script>
+        /* Shared design tokens — keep identical to resume.html */
         tailwind.config = {
             theme: {
                 extend: {
@@ -20,11 +22,17 @@
                     },
                     colors: {
                         brand: {
-                            bg: '#F4F4F0',
-                            text: '#111111',
-                            border: '#D0D0C8',
-                            accent: '#0055FF', /* Changed to a sharp tech blue for the portfolio */
-                            muted: '#5F5F5B'
+                            ink: '#111214',
+                            paper: '#FFFFFF',
+                            canvas: '#F3F4F6',
+                            line: '#D9DBE0',
+                            muted: '#565A63',
+                            accent: '#0055FF',
+                            panel: '#0E0F12',
+                            panelLine: '#2A2D33',
+                            panelText: '#D4D6DB',
+                            panelMuted: '#9A9DA6',
+                            accentDark: '#7AA2FF',
                         }
                     }
                 }
@@ -32,395 +40,421 @@
         }
     </script>
     <style>
+        :root {
+            --ink: #111214; --paper: #FFFFFF; --canvas: #F3F4F6; --line: #D9DBE0;
+            --muted: #565A63; --accent: #0055FF; --panel: #0E0F12; --panel-line: #2A2D33;
+            --panel-text: #D4D6DB; --panel-muted: #9A9DA6; --accent-dark: #7AA2FF;
+        }
         body {
-            background-color: #F4F4F0;
-            color: #111111;
+            background-color: var(--canvas);
+            color: var(--ink);
             -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4 { text-wrap: balance; }
+        p { text-wrap: pretty; }
 
-        .grid-layout { border: 1px solid #D0D0C8; }
-        .border-t-grid { border-top: 1px solid #D0D0C8; }
-        .border-b-grid { border-bottom: 1px solid #D0D0C8; }
-        .border-r-grid { border-right: 1px solid #D0D0C8; }
-        .border-l-grid { border-left: 1px solid #D0D0C8; }
-
-        .img-hover-zoom {
-            overflow: hidden;
-        }
-        .img-hover-zoom img {
-            transition: transform 0.5s ease;
-        }
-        .img-hover-zoom:hover img {
-            transform: scale(1.03);
-        }
-
-        .case-study-tag {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.25rem 0.75rem;
-            border: 1px solid #D0D0C8;
-            border-radius: 999px;
+        /* Shared component: tag pill (same as resume .tag) */
+        .tag {
+            display: inline-block;
             font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.2rem 0.6rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            line-height: 1.5;
+            color: var(--muted);
+        }
+        .tag-dark { border-color: var(--panel-line); color: var(--panel-text); }
+        .tag-dark-accent { border-color: #24407A; color: var(--accent-dark); }
+        .tag-accent { border-color: #B8CCFF; color: var(--accent); }
+
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+        .label-dark { color: var(--panel-muted); }
+
+        .metric-value { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.5rem; line-height: 1.1; }
+
+        .shot { overflow: hidden; }
+        .shot img { transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .shot:hover img { transform: scale(1.02); }
+        @media (prefers-reduced-motion: reduce) {
+            .shot img { transition: none; }
+            .shot:hover img { transform: none; }
         }
     </style>
 </head>
 <body class="font-sans">
 
-    <header class="fixed top-0 w-full bg-brand-bg z-50 border-b-grid no-print">
+    <header class="fixed top-0 w-full bg-brand-canvas z-50 border-b border-brand-line">
         <div class="max-w-[1400px] mx-auto px-6 h-16 flex justify-between items-center">
-            <h1 class="text-sm font-bold tracking-widest uppercase font-mono">
-                <a href="#hero">J. Khaohomklin</a>
-            </h1>
-
-            <nav class="hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase items-center">
-                <a href="#martech" class="hover:text-brand-accent transition-colors">MarTech Infrastructure</a>
-                <a href="#campaigns" class="hover:text-brand-accent transition-colors">Ads Campaigns</a>
-                <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="bg-brand-text text-white px-4 py-2 hover:bg-brand-accent transition-colors flex items-center gap-2">
-                    View Full CV <span>↗</span>
-                </a>
+            <a href="#hero" class="font-mono text-sm font-bold tracking-widest uppercase">J. Khaohomklin</a>
+            <nav class="hidden md:flex gap-8 font-mono text-xs font-bold tracking-widest uppercase items-center">
+                <a href="#tools" class="hover:text-brand-accent transition-colors">Internal Tools</a>
+                <a href="#campaigns" class="hover:text-brand-accent transition-colors">Campaigns</a>
+                <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="bg-brand-ink text-white px-4 py-2 hover:bg-brand-accent transition-colors">Full CV ↗</a>
             </nav>
-
-            <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="md:hidden bg-brand-text text-white px-3 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-1">
-                CV <span>↗</span>
-            </a>
+            <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="md:hidden bg-brand-ink text-white px-3 py-2 font-mono text-xs font-bold uppercase tracking-widest">CV ↗</a>
         </div>
     </header>
 
-    <main class="pt-16 max-w-[1400px] mx-auto grid-layout border-t-0 bg-white">
+    <main class="pt-16 max-w-[1400px] mx-auto border-x border-b border-brand-line bg-brand-paper">
 
-        <section id="hero" class="border-b-grid grid grid-cols-1 lg:grid-cols-12">
-            <div class="lg:col-span-8 p-10 md:p-16 flex flex-col justify-center border-b-grid lg:border-b-0 lg:border-r-grid">
-                <p class="font-mono text-xs text-brand-accent mb-6 uppercase tracking-widest">Selected Works (2024 - Present)</p>
-                <h2 class="text-4xl md:text-6xl font-serif font-bold leading-[1.05] mb-6 text-brand-text">
-                    Scaling Growth Through <span class="italic font-normal text-brand-muted">Data & AI-Built Systems.</span>
-                </h2>
-                <p class="text-brand-muted font-light max-w-2xl leading-relaxed text-sm md:text-base mb-8">
-                    I believe that scaling ad budgets successfully requires more than just media buying skills. It demands robust technical infrastructure. This portfolio showcases how I bridge my 8 years of Performance Marketing expertise with custom MarTech development to solve complex business bottlenecks.
+        <!-- Hero -->
+        <section id="hero" class="border-b border-brand-line grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-span-8 p-8 md:p-16 flex flex-col justify-center border-b border-brand-line lg:border-b-0 lg:border-r">
+                <p class="font-mono text-xs text-brand-accent mb-6 uppercase tracking-widest">Jarupat Khaohomklin · Business Development &amp; Project Manager</p>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold leading-[1.05] mb-6">
+                    Scaling Growth Through <span class="italic font-normal text-brand-muted">Data &amp; AI-Built Systems.</span>
+                </h1>
+                <p class="text-brand-muted max-w-2xl leading-relaxed text-[15px] md:text-base mb-8">
+                    Eight years running paid media on Meta, Google and TikTok, from a ฿1.15M multi-brand electronics campaign to an FMCG brand's first direct-to-consumer sales. At Wakuwaku Production I am Business Development &amp; Project Manager, also leading media planning, strategy and KOL campaigns, and I build the agency's internal tools by vibe coding with Claude Code. This page shows both: the tools, and the results.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#martech" class="text-sm font-bold font-mono border border-brand-text px-6 py-3 hover:bg-brand-text hover:text-white transition-colors">Explore MarTech Systems ↓</a>
-                    <a href="#campaigns" class="text-sm font-bold font-mono border border-transparent text-brand-muted hover:text-brand-accent px-6 py-3 transition-colors">View Ads Campaigns ↓</a>
+                <div class="flex flex-wrap gap-3">
+                    <a href="#tools" class="font-mono text-sm font-bold border border-brand-ink px-6 py-3 hover:bg-brand-ink hover:text-white transition-colors">See the tools ↓</a>
+                    <a href="#campaigns" class="font-mono text-sm font-bold text-brand-muted hover:text-brand-accent px-6 py-3 transition-colors">Campaign results ↓</a>
                 </div>
             </div>
-            <div class="lg:col-span-4 bg-brand-bg p-10 flex flex-col justify-center">
-                <div class="space-y-6 font-mono text-xs">
+            <aside class="lg:col-span-4 bg-brand-canvas p-8 md:p-10 flex flex-col justify-center">
+                <dl class="space-y-5 text-[13px]">
                     <div>
-                        <span class="block text-brand-muted mb-1">Focus Areas</span>
-                        <ul class="font-bold space-y-1">
-                            <li>Performance Marketing</li>
-                            <li>MarTech & Dashboards</li>
-                            <li>Business Process Automation</li>
-                        </ul>
+                        <dt class="label mb-1">Now</dt>
+                        <dd class="font-bold">Wakuwaku Production, Bangkok (2026–)</dd>
+                        <dd class="text-brand-muted">Business Development &amp; Project Manager (Media Planner &amp; Strategy)</dd>
                     </div>
-                    <div class="border-t-grid pt-4">
-                        <span class="block text-brand-muted mb-1">Build Method</span>
-                        <p class="font-bold">AI-Assisted Development ("Vibe Coding") — directing AI to build & secure production tools without a formal engineering background.</p>
+                    <div class="border-t border-brand-line pt-4">
+                        <dt class="label mb-1">Focus</dt>
+                        <dd class="font-bold">Performance media · KOL campaigns · AI workflows · SEO / GEO / AEO</dd>
                     </div>
-                    <div class="border-t-grid pt-4">
-                        <span class="block text-brand-muted mb-1">Tech Stack</span>
-                        <p class="font-bold">HTML, CSS, JS, Google Apps Script, REST APIs, Looker Studio, GA4.</p>
+                    <div class="border-t border-brand-line pt-4">
+                        <dt class="label mb-1">Build method</dt>
+                        <dd class="font-bold">Vibe coding with Claude Code</dd>
+                        <dd class="text-brand-muted">I define the workflow and rules; AI writes and hardens the code. No formal engineering background.</dd>
                     </div>
-                    <div class="border-t-grid pt-4">
-                        <span class="block text-brand-muted mb-1">Contact</span>
-                        <a href="mailto:Jarupatman@gmail.com" class="font-bold hover:text-brand-accent block">Jarupatman@gmail.com</a>
-                        <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="font-bold hover:text-brand-accent underline block mt-2">Full CV / Resume ↗</a>
+                    <div class="border-t border-brand-line pt-4">
+                        <dt class="label mb-1">The tools run on</dt>
+                        <dd class="text-brand-muted">React, Node.js, FastAPI, PostgreSQL, Docker; Google, LINE and Meta APIs</dd>
                     </div>
-                </div>
-            </div>
+                    <div class="border-t border-brand-line pt-4">
+                        <dt class="label mb-1">Contact</dt>
+                        <dd><a href="mailto:Jarupatman@gmail.com" class="font-bold hover:text-brand-accent">Jarupatman@gmail.com</a></dd>
+                        <dd><a href="tel:+66955359497" class="hover:text-brand-accent">(+66) 95 535 9497</a></dd>
+                        <dd class="mt-1"><a href="https://github.com/WkWkp-Project" target="_blank" class="text-brand-accent hover:underline">GitHub ↗</a> · <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="text-brand-accent hover:underline">Full CV ↗</a></dd>
+                    </div>
+                </dl>
+            </aside>
         </section>
 
-        <section id="martech" class="border-b-grid">
-            <div class="p-8 md:p-12 border-b-grid bg-[#0a0a0a] text-white flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <!-- Part 01: Internal tools -->
+        <section id="tools" class="bg-brand-panel text-brand-panelText">
+            <div class="p-8 md:p-12 border-b border-brand-panelLine flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
-                    <span class="font-mono text-xs text-blue-400 mb-2 block">// PART 01: MARTECH INFRASTRUCTURE & AUTOMATION</span>
-                    <h3 class="font-serif text-3xl md:text-5xl font-bold">WakuWaku Ecosystem.</h3>
+                    <span class="font-mono text-xs text-brand-accentDark mb-2 block">// Part 01 — Internal tools</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-white">Built for Wakuwaku.</h2>
                 </div>
-                <p class="text-gray-400 text-sm max-w-md">
-                    Internal systems built solo through AI-assisted development ("vibe coding") to eliminate data silos, streamline creative handoffs, and track ad performance beyond standard platform limitations.
+                <p class="text-brand-panelMuted text-sm max-w-md">
+                    Seven tools I designed and shipped in 2026 by vibe coding with Claude Code, each aimed at a bottleneck I hit as a planner: scattered files, missed ad schedules, manual KOL spreadsheets, and handoffs that lived in chat.
                 </p>
             </div>
 
-            <!-- Case Study 1: Content DB (one system, 4 parts) -->
-            <div class="grid grid-cols-1 lg:grid-cols-5 bg-[#111]">
-                <div class="lg:col-span-2 p-8 md:p-12 border-b border-gray-800 lg:border-b-0 lg:border-r">
+            <!-- Case: Content DB -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 border-b border-brand-panelLine">
+                <div class="lg:col-span-2 p-8 md:p-12 border-b border-brand-panelLine lg:border-b-0 lg:border-r">
                     <div class="flex gap-2 mb-4 flex-wrap">
-                        <span class="case-study-tag text-blue-300 border-blue-900">AI-Assisted Dev</span>
-                        <span class="case-study-tag text-gray-300 border-gray-700">Google Drive API</span>
-                        <span class="case-study-tag text-gray-300 border-gray-700">Internal Tool</span>
+                        <span class="tag tag-dark-accent">Vibe-coded · Claude Code</span>
+                        <span class="tag tag-dark">Google Drive API</span>
+                        <span class="tag tag-dark">Content ops</span>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Content DB</h4>
-                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
-                        A single platform that runs a campaign end-to-end, replacing scattered Drive folders, Sheets trackers, and chat threads with one Source of Truth per campaign. Structured in four parts:
+                    <h3 class="text-2xl font-bold text-white mb-2">Content DB</h3>
+                    <p class="text-sm text-brand-panelMuted mb-6 leading-relaxed">
+                        One page per campaign, from brief to results. It replaced scattered Drive folders, Sheets trackers and chat threads with a single source of truth, in four parts:
                     </p>
-                    <dl class="space-y-3 text-xs">
+                    <dl class="space-y-3 text-[13px]">
                         <div class="flex gap-3">
-                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">A —</dt>
-                            <dd class="text-gray-400">Approved Input Files, synced live from Google Drive with client/internal access control.</dd>
+                            <dt class="font-mono text-brand-accentDark font-bold shrink-0 w-10">A</dt>
+                            <dd class="text-brand-panelMuted">Approved input files, synced from Google Drive, with separate client and internal access.</dd>
                         </div>
                         <div class="flex gap-3">
-                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">B —</dt>
-                            <dd class="text-gray-400">Campaign Assets &amp; Content, tracked by category and image prompt, paginated at scale (20+ assets per campaign).</dd>
+                            <dt class="font-mono text-brand-accentDark font-bold shrink-0 w-10">B</dt>
+                            <dd class="text-brand-panelMuted">Campaign assets and content, tracked by category and image prompt (20+ assets per campaign).</dd>
                         </div>
                         <div class="flex gap-3">
-                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">C —</dt>
-                            <dd class="text-gray-400">Performance &amp; Ad Results, organized by funnel stage (Catch / Connect / Convert).</dd>
+                            <dt class="font-mono text-brand-accentDark font-bold shrink-0 w-10">C</dt>
+                            <dd class="text-brand-panelMuted">Performance and ad results by funnel stage: Catch / Connect / Convert.</dd>
                         </div>
                         <div class="flex gap-3">
-                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">Log —</dt>
-                            <dd class="text-gray-400">Production Audit Trail, a full edit history for team accountability.</dd>
+                            <dt class="font-mono text-brand-accentDark font-bold shrink-0 w-10">Log</dt>
+                            <dd class="text-brand-panelMuted">Production audit trail: every edit, who and when.</dd>
                         </div>
                     </dl>
-                    <p class="text-xs text-gray-500 mt-6 leading-relaxed">
-                        Google OAuth login, autosaves to Drive every 2.5s (debounced to stay under API limits), and a one-click "Prepare Handoff" that bundles everything — data, audit log, a formatted PDF report, client instructions — into a single ZIP.
+                    <p class="text-xs text-brand-panelMuted mt-6 leading-relaxed">
+                        Google sign-in, autosave to Drive every 2.5 s (batched to stay under API limits), and a one-click "Prepare Handoff" that bundles the data, audit log, a PDF report and client instructions into one ZIP. Now also offered to clients as a packaged content service, with an onboarding checklist and input standards I helped define.
                     </p>
-                    <a href="https://github.com/WkWkp-Project/dashboard" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-400 hover:underline mt-4">
-                        View Source ↗
-                    </a>
+                    <a href="https://github.com/WkWkp-Project/dashboard" target="_blank" class="inline-block font-mono text-xs text-brand-accentDark hover:underline mt-4">View source ↗</a>
                 </div>
                 <div class="lg:col-span-3 p-8 md:p-12">
-                    <div class="border border-gray-800 rounded-lg overflow-hidden bg-black">
-                        <div class="flex items-center gap-1.5 px-3 py-2 bg-gray-900 border-b border-gray-800">
-                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
-                            <span class="ml-2 text-[10px] text-gray-500 font-mono">content-db · thychef campaign</span>
+                    <div class="border border-brand-panelLine overflow-hidden bg-black">
+                        <div class="flex items-center gap-1.5 px-3 py-2 border-b border-brand-panelLine">
+                            <span class="w-2 h-2 rounded-full bg-brand-panelLine"></span>
+                            <span class="w-2 h-2 rounded-full bg-brand-panelLine"></span>
+                            <span class="w-2 h-2 rounded-full bg-brand-panelLine"></span>
+                            <span class="ml-2 text-[10px] text-brand-panelMuted font-mono">content-db · Thychef campaign</span>
                         </div>
-                        <div class="img-hover-zoom max-h-[560px] overflow-y-auto">
-                            <!-- Using user provided image -->
-                            <img src="ประกอบ/content-db.png" alt="Content DB — Thychef campaign detail showing sections A, B, C and the production audit log" class="lightbox-img cursor-zoom-in w-full h-auto" onerror="this.src='https://placehold.co/900x1600/111/333?text=Content+DB+Screenshot+Missing'">
+                        <div class="shot max-h-[560px] overflow-y-auto">
+                            <img src="ประกอบ/content-db.png" alt="Content DB: Thychef campaign page showing input files, assets, results and the audit log" class="lightbox-img cursor-zoom-in w-full h-auto">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Case Study 2: Influencer / KOL -->
-            <div class="grid grid-cols-1 lg:grid-cols-5 bg-[#111] border-t border-gray-800">
-                <div class="lg:col-span-2 p-8 md:p-12 border-b border-gray-800 lg:border-b-0 lg:border-r order-2 lg:order-1">
+            <!-- Case: Creator Hub -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 border-b border-brand-panelLine">
+                <div class="lg:col-span-2 p-8 md:p-12 border-b border-brand-panelLine lg:border-b-0 lg:border-r order-2 lg:order-1">
                     <div class="flex gap-2 mb-4 flex-wrap">
-                        <span class="case-study-tag text-blue-300 border-blue-900">AI-Assisted Dev</span>
-                        <span class="case-study-tag text-gray-300 border-gray-700">Creator Hub</span>
-                        <span class="case-study-tag text-gray-300 border-gray-700">Database</span>
+                        <span class="tag tag-dark-accent">Vibe-coded · Claude Code</span>
+                        <span class="tag tag-dark">FastAPI · PostgreSQL</span>
+                        <span class="tag tag-dark">KOL ops</span>
                     </div>
-                    <h4 class="text-2xl font-bold text-white mb-2">Influencer / KOL Matrix</h4>
-                    <p class="text-sm text-gray-400 mb-4 leading-relaxed">
-                        A second, separate platform dedicated to the KOL pipeline — from briefing and asset uploading to performance tracking. It centralizes influencer communication plans and standardizes evaluation metrics for organic and paid reach.
+                    <h3 class="text-2xl font-bold text-white mb-2">Creator Hub</h3>
+                    <p class="text-sm text-brand-panelMuted mb-4 leading-relaxed">
+                        A separate app for influencer work: a creator directory with tiers and full fee breakdown (base, code-gen, management, agency %), plus a KOL plan per campaign with budgets, briefs and results. Excel import matches Thai column headers automatically, so the team's existing sheets came in without retyping.
                     </p>
-                    <a href="https://github.com/WkWkp-Project/Creator-Hub" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-400 hover:underline">
-                        View Source ↗
-                    </a>
+                    <p class="text-xs text-brand-panelMuted leading-relaxed">
+                        Three user roles including a read-only client view, Google sign-in for the team, deployed with a managed Postgres database. 90 commits over Jun – Sep 2026.
+                    </p>
+                    <a href="https://github.com/WkWkp-Project/Creator-Hub/tree/Patch-1" target="_blank" class="inline-block font-mono text-xs text-brand-accentDark hover:underline mt-4">View source ↗</a>
                 </div>
                 <div class="lg:col-span-3 p-8 md:p-12 order-1 lg:order-2">
-                    <div class="border border-gray-800 rounded-lg overflow-hidden bg-black">
-                        <div class="flex items-center gap-1.5 px-3 py-2 bg-gray-900 border-b border-gray-800">
-                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
-                            <span class="ml-2 text-[10px] text-gray-500 font-mono">influencer · KOL plan</span>
+                    <div class="border border-brand-panelLine overflow-hidden bg-black">
+                        <div class="flex items-center gap-1.5 px-3 py-2 border-b border-brand-panelLine">
+                            <span class="w-2 h-2 rounded-full bg-brand-panelLine"></span>
+                            <span class="w-2 h-2 rounded-full bg-brand-panelLine"></span>
+                            <span class="w-2 h-2 rounded-full bg-brand-panelLine"></span>
+                            <span class="ml-2 text-[10px] text-brand-panelMuted font-mono">creator-hub · KOL plan</span>
                         </div>
-                        <div class="img-hover-zoom max-h-[560px] overflow-y-auto">
-                            <!-- Using user provided image -->
-                            <img src="ประกอบ/influencer.png" alt="Influencer/KOL Matrix dashboard" class="lightbox-img cursor-zoom-in w-full h-auto" onerror="this.src='https://placehold.co/900x1200/111/333?text=KOL+Matrix+Missing'">
+                        <div class="shot max-h-[560px] overflow-y-auto">
+                            <img src="ประกอบ/influencer.png" alt="Creator Hub: campaign page with input files, KOL plan and performance" class="lightbox-img cursor-zoom-in w-full h-auto">
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More tools -->
+            <div class="p-8 md:p-12">
+                <h3 class="label label-dark mb-5">Five more tools</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-px bg-brand-panelLine border border-brand-panelLine">
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">PM Hub</p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed mb-3">Task tracker for PM, creative and AE roles: Gantt view, workload-clash and deadline-risk checks, tiered reminders, team chat, Google sign-in and Calendar.</p>
+                        <a href="https://github.com/WkWkp-Project/Tracking-Task" target="_blank" class="font-mono text-xs text-brand-accentDark hover:underline">Source ↗</a>
+                    </div>
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">Ad Ops Dashboard</p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed mb-3">Merges multi-brand ad schedules from Google Sheets into one daily view with LINE morning alerts, KPI targets from a rate card, and plan-vs-actual CPM, CPC and ROAS.</p>
+                        <a href="https://github.com/WkWkp-Project/Ads-Track" target="_blank" class="font-mono text-xs text-brand-accentDark hover:underline">Source ↗</a>
+                    </div>
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">WkWkp Link</p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed mb-3">Campaign link shortener with UTM attribution, separate vendor workspaces and privacy-first click analytics. I also wrote its sales deck.</p>
+                        <span class="font-mono text-xs text-brand-panelMuted">Private repository</span>
+                    </div>
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">Line-Leave</p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed mb-3">Leave requests through LINE chat, with Thai labour-law entitlements and a manager-to-CEO approval chain.</p>
+                        <a href="https://github.com/WkWkp-Project/Line-Leave" target="_blank" class="font-mono text-xs text-brand-accentDark hover:underline">Source ↗</a>
+                    </div>
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">Facebook Performance Analyzer <span class="font-normal text-brand-panelMuted">(in development)</span></p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed mb-3">Pulls page and ad data straight from Meta's Graph and Marketing APIs, scores posts with visible reasoning, and builds client-ready reports.</p>
+                        <a href="https://github.com/WkWkp-Project/Report-Analysis" target="_blank" class="font-mono text-xs text-brand-accentDark hover:underline">Source ↗</a>
+                    </div>
+                    <a href="https://github.com/WkWkp-Project" target="_blank" class="bg-brand-panel p-6 flex flex-col justify-end hover:bg-[#16181C] transition-colors">
+                        <p class="label label-dark mb-2">All repositories</p>
+                        <p class="font-serif text-xl font-bold text-white">github.com/WkWkp-Project ↗</p>
+                    </a>
+                </div>
+
+                <h3 class="label label-dark mt-12 mb-5">AI in the workflow</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-panelLine border border-brand-panelLine">
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">WakuFlow Assist</p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed">AI customer-service assistant for brand inboxes. I classified 383 real Tulip conversations, designed knowledge-base answers with human handoff for complaints and sales leads, and planned a shadow-mode rollout before going live.</p>
+                    </div>
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">Generative-AI content pipeline</p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed">Standardized the team's mockup flow (ChatGPT Projects → Higgsfield → Canva) and kept a reusable image prompt on every asset in Content DB, so a visual can be regenerated or varied later.</p>
+                    </div>
+                    <div class="bg-brand-panel p-6">
+                        <p class="font-bold text-white mb-1">Custom Claude skills &amp; MCP</p>
+                        <p class="text-[13px] text-brand-panelMuted leading-relaxed">Wrote a Claude skill that reverse-engineers reference images into image and banner prompts, and connect tools like Canva to Claude through MCP for planning and proposal work.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Part 02: Campaigns -->
         <section id="campaigns">
-            <div class="p-8 md:p-12 border-b-grid bg-brand-bg flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="p-8 md:p-12 border-b border-brand-line bg-brand-canvas flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
-                    <span class="font-mono text-xs text-brand-accent mb-2 block">// PART 02: PERFORMANCE ADS EXECUTION</span>
-                    <h3 class="font-serif text-3xl md:text-5xl font-bold">Selected Campaigns.</h3>
+                    <span class="font-mono text-xs text-brand-accent mb-2 block">// Part 02 — Campaign results</span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold">Selected Campaigns.</h2>
                 </div>
                 <p class="text-brand-muted text-sm max-w-md">
-                    Real-world applications of media buying strategies across Meta, Google, and TikTok. Focusing on rigorous A/B testing, funnel optimization, and measurable ROAS.
+                    Paid media on Meta, Google and TikTok for electronics, FMCG, equipment and healthcare brands. Numbers come from the campaign reports linked below.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2">
 
-                <!-- Campaign: Mahajak -->
-                <div class="p-8 md:p-12 border-b-grid lg:border-r-grid">
-                    <div class="flex justify-between items-start mb-6">
+                <!-- Mahajak -->
+                <article class="p-8 md:p-12 border-b border-brand-line lg:border-r">
+                    <div class="flex justify-between items-start gap-4 mb-6">
                         <div>
-                            <h4 class="text-2xl font-bold font-serif mb-1">Mahajak Mega Deal</h4>
-                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">JBL | Harman/Kardon | JBL Quantum</p>
+                            <h3 class="text-2xl font-bold font-serif mb-1">Mahajak Mega Deal</h3>
+                            <p class="label">JBL · Harman/Kardon · JBL Quantum</p>
                         </div>
-                        <span class="case-study-tag border-brand-border">Q4 2024 - Q1 2025</span>
+                        <span class="tag whitespace-nowrap">2 seasons · 2024 – 2026</span>
                     </div>
-
-                    <div class="img-hover-zoom mb-8 border border-gray-200 bg-gray-50 p-2 rounded">
-                        <img src="ประกอบ/mahajak.png" alt="Mahajak Report" class="lightbox-img cursor-zoom-in w-full h-auto rounded">
-                    </div>
-
-                    <div class="text-sm text-brand-text space-y-4">
-                        <p><strong>The Challenge:</strong> Drive massive awareness and sales across diverse electronic brands with distinct target audiences simultaneously.</p>
-                        <p><strong>The Strategy:</strong> Allocated a 1.15M THB budget across Meta, Google, and TikTok. Segmented audiences strictly by brand persona (Gamer for Quantum, Music Lover for JBL, Bookworm for Harman). Restructured Search/Shopping keywords to capture high-intent traffic.</p>
-
-                        <div class="grid grid-cols-2 gap-4 pt-6 border-t-grid font-mono text-sm mt-6">
-                            <div>
-                                <span class="text-brand-muted block text-xs mb-1">Peak ROAS</span>
-                                <strong class="text-brand-accent text-2xl">153.7x</strong>
-                            </div>
-                            <div>
-                                <span class="text-brand-muted block text-xs mb-1">Total Purchases</span>
-                                <strong class="text-2xl">708</strong>
-                                <span class="text-[10px] text-green-600 ml-1">(+271% KPI)</span>
-                            </div>
+                    <figure class="mb-8">
+                        <div class="shot border border-brand-line p-2">
+                            <img src="ประกอบ/mahajak.png" alt="Mahajak Mega Deal season 2 performance report cover" class="lightbox-img cursor-zoom-in w-full h-auto">
                         </div>
-                        <a href="ประกอบ/mahajak-report-compact.pdf" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-brand-accent hover:underline pt-2">
-                            View Full Campaign Report (PDF, 10.5MB) ↗
-                        </a>
+                        <figcaption class="font-mono text-[11px] text-brand-muted mt-2">Season 2 report, Nov 2025 – Jan 2026</figcaption>
+                    </figure>
+                    <div class="text-sm text-brand-muted space-y-4 leading-relaxed">
+                        <p><strong class="text-brand-ink">Season 1 · Nov 2024 – Jan 2025:</strong> Sales push for three electronics brands with very different buyers. I split ฿1.15M across Meta, Google and TikTok and gave each brand its own persona: gamers for Quantum, music lovers for JBL, home-office and bookish buyers for Harman/Kardon, then rebuilt search and shopping keywords around high-intent queries.</p>
                     </div>
-                </div>
+                    <div class="grid grid-cols-2 gap-4 pt-6 mt-6 border-t border-brand-line">
+                        <div><p class="label mb-1">Peak ROAS</p><p class="metric-value text-brand-accent">153.7×</p></div>
+                        <div><p class="label mb-1">Purchases</p><p class="metric-value">708</p><p class="font-mono text-[11px] text-brand-muted mt-1">+271% vs KPI</p></div>
+                    </div>
+                    <div class="text-sm text-brand-muted leading-relaxed mt-6">
+                        <p><strong class="text-brand-ink">Season 2 · Nov 2025 – Jan 2026:</strong> Awareness push across seven brand lines, from Partybox and Home Audio to JBL PRO, Shure and AlphaTheta. All four headline KPIs beat target, at 128% to 594%.</p>
+                    </div>
+                    <a href="ประกอบ/mahajak-report-compact.pdf" target="_blank" class="inline-block font-mono text-xs text-brand-accent hover:underline mt-4">Season 2 report (PDF, 10.5 MB) ↗</a>
+                </article>
 
-                <!-- Campaign: Dinosaur Rice -->
-                <div class="p-8 md:p-12 border-b-grid">
-                    <div class="flex justify-between items-start mb-6">
+                <!-- Dinosaur Rice -->
+                <article class="p-8 md:p-12 border-b border-brand-line">
+                    <div class="flex justify-between items-start gap-4 mb-6">
                         <div>
-                            <h4 class="text-2xl font-bold font-serif mb-1">Dinosaur Rice (ข้าวไดโนเสาร์)</h4>
-                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">FMCG / Social Commerce Shift</p>
+                            <h3 class="text-2xl font-bold font-serif mb-1">Dinosaur Rice <span class="font-sans font-normal text-lg text-brand-muted">ข้าวไดโนเสาร์</span></h3>
+                            <p class="label">FMCG · First direct-to-consumer sales</p>
                         </div>
-                        <span class="case-study-tag border-brand-border">Mid 2025</span>
+                        <span class="tag whitespace-nowrap">Jun – Jul 2025</span>
                     </div>
-
-                    <div class="img-hover-zoom mb-8 border border-gray-200 bg-gray-50 p-2 rounded">
-                        <img src="ประกอบ/dinosaur.png" alt="Rice Campaign" class="lightbox-img cursor-zoom-in w-full h-auto rounded">
+                    <div class="shot mb-8 border border-brand-line p-2">
+                        <img src="ประกอบ/dinosaur.png" alt="Dinosaur Rice campaign report" class="lightbox-img cursor-zoom-in w-full h-auto">
                     </div>
-
-                    <div class="text-sm text-brand-text space-y-4">
-                        <p><strong>The Challenge:</strong> Shift sales dependency from Marketplaces (Shopee/Lazada) to Direct-to-Consumer via Facebook Page.</p>
-                        <p><strong>The Strategy:</strong> Split content generation and ad targeting by generational behaviors (Gen X for direct product focus, Gen Y for lifestyle/cooking applications). Implemented strong CTA video assets to disrupt scrolling and drive immediate inbox inquiries.</p>
-
-                        <div class="grid grid-cols-2 gap-4 pt-6 border-t-grid font-mono text-sm mt-6">
-                            <div>
-                                <span class="text-brand-muted block text-xs mb-1">ROAS Range</span>
-                                <strong class="text-brand-accent text-2xl">1.0 - 18x</strong>
-                            </div>
-                            <div>
-                                <span class="text-brand-muted block text-xs mb-1">Lowest CPP (Gen X)</span>
-                                <strong class="text-2xl">฿21</strong>
-                            </div>
-                        </div>
-                        <a href="ประกอบ/dinosaur-rice-report-compact.pdf" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-brand-accent hover:underline pt-2">
-                            View Full Campaign Report (PDF, 4MB) ↗
-                        </a>
+                    <div class="text-sm text-brand-muted space-y-4 leading-relaxed">
+                        <p><strong class="text-brand-ink">Challenge:</strong> Move sales from Shopee to the brand's own Facebook page, its first time selling online directly.</p>
+                        <p><strong class="text-brand-ink">What I did:</strong> Split content and targeting by generation: product-first for Gen X, lifestyle and cooking for Gen Y. Added strong calls to action in video to push buy-now clicks and chats. July orders beat KPI by 30% on ฿53.4K of a ฿60K budget.</p>
                     </div>
-                </div>
+                    <div class="grid grid-cols-2 gap-4 pt-6 mt-6 border-t border-brand-line">
+                        <div><p class="label mb-1">ROAS range</p><p class="metric-value text-brand-accent">1–18×</p></div>
+                        <div><p class="label mb-1">Lowest cost / purchase</p><p class="metric-value">฿21</p><p class="font-mono text-[11px] text-brand-muted mt-1">Gen X segment</p></div>
+                    </div>
+                    <a href="ประกอบ/dinosaur-rice-report-compact.pdf" target="_blank" class="inline-block font-mono text-xs text-brand-accent hover:underline mt-6">Full campaign report (PDF, 4 MB) ↗</a>
+                </article>
 
-                <!-- Campaign: STAND -->
-                <div class="p-8 md:p-12 border-b-grid lg:border-b-0 lg:border-r-grid">
-                    <div class="flex justify-between items-start mb-6">
+                <!-- STAND -->
+                <article class="p-8 md:p-12 border-b border-brand-line lg:border-b-0 lg:border-r">
+                    <div class="flex justify-between items-start gap-4 mb-6">
                         <div>
-                            <h4 class="text-2xl font-bold font-serif mb-1">STAND Tools (iMAN)</h4>
-                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">B2B & B2C / Equipment</p>
+                            <h3 class="text-2xl font-bold font-serif mb-1">STAND Power Tools</h3>
+                            <p class="label">iMAN · Equipment · B2B &amp; B2C</p>
                         </div>
+                        <span class="tag whitespace-nowrap">Mar – Apr 2025</span>
                     </div>
-
-                    <div class="img-hover-zoom mb-8 border border-gray-200 bg-gray-50 p-2 rounded">
-                        <img src="ประกอบ/stand.png" alt="Stand Report" class="lightbox-img cursor-zoom-in w-full h-auto rounded">
+                    <div class="shot mb-8 border border-brand-line p-2">
+                        <img src="ประกอบ/stand.png" alt="STAND power tools campaign" class="lightbox-img cursor-zoom-in w-full h-auto">
                     </div>
-
-                    <div class="text-sm text-brand-text space-y-4">
-                        <p><strong>Execution:</strong> Deployed "How to Use" video content for heavy tools (rotary drills, angle grinders) to build trust. Managed multi-channel E-commerce (Shopee, Lazada, TikTok) to capture converted traffic.</p>
-                        <div class="bg-gray-100 p-4 rounded font-mono text-xs border border-gray-200">
-                            <strong class="text-brand-accent block mb-1">Results:</strong>
-                            ROAS: 1.45 - 5.7x <br>
-                            Sales Growth: +58.1% (in 2 months)
-                        </div>
+                    <div class="text-sm text-brand-muted space-y-4 leading-relaxed">
+                        <p><strong class="text-brand-ink">What I did:</strong> Ran "how to use" video ads for rotary drills and angle grinders to build trust in a new brand, and managed the Shopee, Lazada and TikTok Shop storefronts that caught the traffic.</p>
                     </div>
-                </div>
+                    <div class="grid grid-cols-2 gap-4 pt-6 mt-6 border-t border-brand-line">
+                        <div><p class="label mb-1">Purchases</p><p class="metric-value text-brand-accent">+58.1%</p><p class="font-mono text-[11px] text-brand-muted mt-1">in two months</p></div>
+                        <div><p class="label mb-1">ROAS range</p><p class="metric-value">1.45–5.7×</p></div>
+                    </div>
+                </article>
 
-                <!-- Campaign: Clinics & SEO -->
-                <div class="p-8 md:p-12">
-                    <div class="flex justify-between items-start mb-6">
+                <!-- Clinics & SEO -->
+                <article class="p-8 md:p-12">
+                    <div class="flex justify-between items-start gap-4 mb-6">
                         <div>
-                            <h4 class="text-2xl font-bold font-serif mb-1">My Life Clinic & SEO</h4>
-                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Healthcare / Lead Generation</p>
+                            <h3 class="text-2xl font-bold font-serif mb-1">My Life Clinic &amp; Search</h3>
+                            <p class="label">Healthcare · Lead generation · SEO</p>
                         </div>
+                        <span class="tag whitespace-nowrap">2022 – 2025</span>
                     </div>
-
-                    <div class="text-sm text-brand-text space-y-6">
-                        <div>
-                            <h5 class="text-sm font-bold border-b border-brand-border pb-1 mb-2">Aesthetic & Physio Messaging</h5>
-                            <p class="text-brand-muted mb-2">Designed messaging objectives focused on high-ticket services (Sculptra, Filler) and rehabilitation appointments.</p>
-                            <ul class="font-mono bg-gray-100 p-4 rounded border border-gray-200 space-y-1">
-                                <li>Physio Cost/Convo: <strong class="text-brand-accent">฿62.40</strong> (229 Leads)</li>
-                                <li>Beauty Cost/Convo: <strong>฿104 - ฿1,999</strong></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h5 class="text-sm font-bold border-b border-brand-border pb-1 mb-3">SEO / GEO / AEO Evidence</h5>
-                            <p class="text-brand-muted mb-2">Extended keyword strategy beyond classic SEO into GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) — structuring content so it surfaces in AI-generated answers (Google AI Overviews, ChatGPT, etc.), guided by AI-assisted research rather than manual keyword tools alone.</p>
-                            <div class="grid grid-cols-2 gap-3">
-                                <img src="ประกอบ/seo-1.png" alt="SEO/GEO/AEO evidence 1" class="lightbox-img cursor-zoom-in border border-brand-border rounded w-full">
-                                <img src="ประกอบ/seo-2.png" alt="SEO/GEO/AEO evidence 2" class="lightbox-img cursor-zoom-in border border-brand-border rounded w-full">
-                            </div>
-                        </div>
+                    <div class="text-sm text-brand-muted space-y-4 leading-relaxed">
+                        <p><strong class="text-brand-ink">Messaging campaigns:</strong> Meta ads built to start conversations for high-ticket aesthetic treatments (Sculptra, filler) and physiotherapy appointments.</p>
                     </div>
-                </div>
+                    <div class="grid grid-cols-2 gap-4 pt-6 mt-6 mb-8 border-t border-brand-line">
+                        <div><p class="label mb-1">Physio cost / chat</p><p class="metric-value text-brand-accent">฿62.40</p><p class="font-mono text-[11px] text-brand-muted mt-1">229 conversations</p></div>
+                        <div><p class="label mb-1">Aesthetic cost / chat</p><p class="metric-value">฿104+</p><p class="font-mono text-[11px] text-brand-muted mt-1">by treatment</p></div>
+                    </div>
+                    <div class="text-sm text-brand-muted space-y-4 leading-relaxed">
+                        <p><strong class="text-brand-ink">SEO, GEO and AEO:</strong> Keyword work that goes past classic SEO, structuring content so it shows up in AI-generated answers (Google AI Overviews, ChatGPT), with AI-assisted research alongside keyword tools.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mt-4">
+                        <img src="ประกอบ/seo-1.png" alt="Search result evidence 1" class="lightbox-img cursor-zoom-in border border-brand-line w-full">
+                        <img src="ประกอบ/seo-2.png" alt="Search result evidence 2" class="lightbox-img cursor-zoom-in border border-brand-line w-full">
+                    </div>
+                </article>
 
             </div>
         </section>
     </main>
 
-    <footer class="max-w-[1400px] mx-auto border-x border-b border-brand-border bg-brand-text text-white p-12 text-center flex flex-col items-center justify-center mb-12">
-        <h2 class="text-2xl font-serif font-bold mb-4">Let's build something scalable.</h2>
-        <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="font-mono text-sm border border-white px-6 py-3 hover:bg-white hover:text-brand-text transition-colors mb-8">
-            Read My Full CV ↗
-        </a>
-        <p class="text-xs text-gray-500 font-mono tracking-widest uppercase">&copy; 2026 JARUPAT KHAOHOMKLIN</p>
+    <footer class="max-w-[1400px] mx-auto border-x border-b border-brand-panelLine bg-brand-panel text-white p-12 text-center flex flex-col items-center mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-2">Let's build something scalable.</h2>
+        <p class="text-brand-panelMuted text-sm mb-6"><a href="mailto:Jarupatman@gmail.com" class="hover:text-white">Jarupatman@gmail.com</a></p>
+        <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="font-mono text-sm border border-white px-6 py-3 hover:bg-white hover:text-brand-ink transition-colors mb-8">Read my full CV ↗</a>
+        <p class="font-mono text-xs text-brand-panelMuted tracking-widest uppercase">&copy; 2026 Jarupat Khaohomklin</p>
     </footer>
 
-    <!-- Lightbox overlay: click any project/campaign screenshot to view it enlarged -->
-    <div id="lightbox" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Enlarged image viewer">
+    <!-- Lightbox: click any screenshot to enlarge -->
+    <div id="lightbox" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4 md:p-10 bg-black/90" role="dialog" aria-modal="true" aria-label="Enlarged image">
         <button id="lightbox-close" type="button" aria-label="Close" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-full border border-white/30 text-white text-xl hover:bg-white hover:text-black transition-colors">&times;</button>
-        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain rounded shadow-2xl">
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain">
     </div>
     <style>
         #lightbox.flex { display: flex; }
-        #lightbox img { animation: lightbox-in 0.2s ease-out; }
-        @media (prefers-reduced-motion: reduce) {
-            #lightbox img { animation: none; }
-        }
-        @keyframes lightbox-in {
-            from { opacity: 0; transform: scale(0.97); }
-            to { opacity: 1; transform: scale(1); }
-        }
+        #lightbox img { animation: lightbox-in 0.2s cubic-bezier(0.22, 1, 0.36, 1); }
+        @media (prefers-reduced-motion: reduce) { #lightbox img { animation: none; } }
+        @keyframes lightbox-in { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
     </style>
     <script>
         (function () {
             var lightbox = document.getElementById('lightbox');
             var lightboxImg = document.getElementById('lightbox-img');
             var closeBtn = document.getElementById('lightbox-close');
-
             function openLightbox(src, alt) {
                 lightboxImg.src = src;
                 lightboxImg.alt = alt || '';
                 lightbox.classList.remove('hidden');
                 lightbox.classList.add('flex');
                 document.body.style.overflow = 'hidden';
+                closeBtn.focus();
             }
-
             function closeLightbox() {
                 lightbox.classList.add('hidden');
                 lightbox.classList.remove('flex');
                 lightboxImg.src = '';
                 document.body.style.overflow = '';
             }
-
             document.querySelectorAll('.lightbox-img').forEach(function (img) {
-                img.addEventListener('click', function () {
-                    openLightbox(img.src, img.alt);
-                });
+                img.addEventListener('click', function () { openLightbox(img.src, img.alt); });
             });
-
             closeBtn.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', function (e) {
-                if (e.target === lightbox) closeLightbox();
-            });
+            lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
             });
