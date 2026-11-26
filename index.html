@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio: Jarupat Khaohomklin — MarTech & Ads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Thai:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Chivo', 'Noto Sans Thai', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F4F4F0',
+                            text: '#111111',
+                            border: '#D0D0C8',
+                            accent: '#0055FF', /* Changed to a sharp tech blue for the portfolio */
+                            muted: '#5F5F5B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F4F4F0;
+            color: #111111;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .grid-layout { border: 1px solid #D0D0C8; }
+        .border-t-grid { border-top: 1px solid #D0D0C8; }
+        .border-b-grid { border-bottom: 1px solid #D0D0C8; }
+        .border-r-grid { border-right: 1px solid #D0D0C8; }
+        .border-l-grid { border-left: 1px solid #D0D0C8; }
+
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.5s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.03);
+        }
+
+        .case-study-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            border: 1px solid #D0D0C8;
+            border-radius: 999px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <header class="fixed top-0 w-full bg-brand-bg z-50 border-b-grid no-print">
+        <div class="max-w-[1400px] mx-auto px-6 h-16 flex justify-between items-center">
+            <h1 class="text-sm font-bold tracking-widest uppercase font-mono">
+                <a href="#hero">J. Khaohomklin</a>
+            </h1>
+
+            <nav class="hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase items-center">
+                <a href="#martech" class="hover:text-brand-accent transition-colors">MarTech Infrastructure</a>
+                <a href="#campaigns" class="hover:text-brand-accent transition-colors">Ads Campaigns</a>
+                <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="bg-brand-text text-white px-4 py-2 hover:bg-brand-accent transition-colors flex items-center gap-2">
+                    View Full CV <span>↗</span>
+                </a>
+            </nav>
+
+            <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="md:hidden bg-brand-text text-white px-3 py-2 text-xs font-bold uppercase tracking-widest flex items-center gap-1">
+                CV <span>↗</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-16 max-w-[1400px] mx-auto grid-layout border-t-0 bg-white">
+
+        <section id="hero" class="border-b-grid grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-span-8 p-10 md:p-16 flex flex-col justify-center border-b-grid lg:border-b-0 lg:border-r-grid">
+                <p class="font-mono text-xs text-brand-accent mb-6 uppercase tracking-widest">Selected Works (2024 - Present)</p>
+                <h2 class="text-4xl md:text-6xl font-serif font-bold leading-[1.05] mb-6 text-brand-text">
+                    Scaling Growth Through <span class="italic font-normal text-brand-muted">Data & AI-Built Systems.</span>
+                </h2>
+                <p class="text-brand-muted font-light max-w-2xl leading-relaxed text-sm md:text-base mb-8">
+                    I believe that scaling ad budgets successfully requires more than just media buying skills. It demands robust technical infrastructure. This portfolio showcases how I bridge my 8 years of Performance Marketing expertise with custom MarTech development to solve complex business bottlenecks.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#martech" class="text-sm font-bold font-mono border border-brand-text px-6 py-3 hover:bg-brand-text hover:text-white transition-colors">Explore MarTech Systems ↓</a>
+                    <a href="#campaigns" class="text-sm font-bold font-mono border border-transparent text-brand-muted hover:text-brand-accent px-6 py-3 transition-colors">View Ads Campaigns ↓</a>
+                </div>
+            </div>
+            <div class="lg:col-span-4 bg-brand-bg p-10 flex flex-col justify-center">
+                <div class="space-y-6 font-mono text-xs">
+                    <div>
+                        <span class="block text-brand-muted mb-1">Focus Areas</span>
+                        <ul class="font-bold space-y-1">
+                            <li>Performance Marketing</li>
+                            <li>MarTech & Dashboards</li>
+                            <li>Business Process Automation</li>
+                        </ul>
+                    </div>
+                    <div class="border-t-grid pt-4">
+                        <span class="block text-brand-muted mb-1">Build Method</span>
+                        <p class="font-bold">AI-Assisted Development ("Vibe Coding") — directing AI to build & secure production tools without a formal engineering background.</p>
+                    </div>
+                    <div class="border-t-grid pt-4">
+                        <span class="block text-brand-muted mb-1">Tech Stack</span>
+                        <p class="font-bold">HTML, CSS, JS, Google Apps Script, REST APIs, Looker Studio, GA4.</p>
+                    </div>
+                    <div class="border-t-grid pt-4">
+                        <span class="block text-brand-muted mb-1">Contact</span>
+                        <a href="mailto:Jarupatman@gmail.com" class="font-bold hover:text-brand-accent block">Jarupatman@gmail.com</a>
+                        <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="font-bold hover:text-brand-accent underline block mt-2">Full CV / Resume ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="martech" class="border-b-grid">
+            <div class="p-8 md:p-12 border-b-grid bg-[#0a0a0a] text-white flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <span class="font-mono text-xs text-blue-400 mb-2 block">// PART 01: MARTECH INFRASTRUCTURE & AUTOMATION</span>
+                    <h3 class="font-serif text-3xl md:text-5xl font-bold">WakuWaku Ecosystem.</h3>
+                </div>
+                <p class="text-gray-400 text-sm max-w-md">
+                    Internal systems built solo through AI-assisted development ("vibe coding") to eliminate data silos, streamline creative handoffs, and track ad performance beyond standard platform limitations.
+                </p>
+            </div>
+
+            <!-- Case Study 1: Content DB (one system, 4 parts) -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 bg-[#111]">
+                <div class="lg:col-span-2 p-8 md:p-12 border-b border-gray-800 lg:border-b-0 lg:border-r">
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="case-study-tag text-blue-300 border-blue-900">AI-Assisted Dev</span>
+                        <span class="case-study-tag text-gray-300 border-gray-700">Google Drive API</span>
+                        <span class="case-study-tag text-gray-300 border-gray-700">Internal Tool</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Content DB</h4>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                        A single platform that runs a campaign end-to-end, replacing scattered Drive folders, Sheets trackers, and chat threads with one Source of Truth per campaign. Structured in four parts:
+                    </p>
+                    <dl class="space-y-3 text-xs">
+                        <div class="flex gap-3">
+                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">A —</dt>
+                            <dd class="text-gray-400">Approved Input Files, synced live from Google Drive with client/internal access control.</dd>
+                        </div>
+                        <div class="flex gap-3">
+                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">B —</dt>
+                            <dd class="text-gray-400">Campaign Assets &amp; Content, tracked by category and image prompt, paginated at scale (20+ assets per campaign).</dd>
+                        </div>
+                        <div class="flex gap-3">
+                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">C —</dt>
+                            <dd class="text-gray-400">Performance &amp; Ad Results, organized by funnel stage (Catch / Connect / Convert).</dd>
+                        </div>
+                        <div class="flex gap-3">
+                            <dt class="font-mono text-blue-400 font-bold shrink-0 w-10">Log —</dt>
+                            <dd class="text-gray-400">Production Audit Trail, a full edit history for team accountability.</dd>
+                        </div>
+                    </dl>
+                    <p class="text-xs text-gray-500 mt-6 leading-relaxed">
+                        Google OAuth login, autosaves to Drive every 2.5s (debounced to stay under API limits), and a one-click "Prepare Handoff" that bundles everything — data, audit log, a formatted PDF report, client instructions — into a single ZIP.
+                    </p>
+                    <a href="https://github.com/WkWkp-Project/dashboard" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-400 hover:underline mt-4">
+                        View Source ↗
+                    </a>
+                </div>
+                <div class="lg:col-span-3 p-8 md:p-12">
+                    <div class="border border-gray-800 rounded-lg overflow-hidden bg-black">
+                        <div class="flex items-center gap-1.5 px-3 py-2 bg-gray-900 border-b border-gray-800">
+                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+                            <span class="ml-2 text-[10px] text-gray-500 font-mono">content-db · thychef campaign</span>
+                        </div>
+                        <div class="img-hover-zoom max-h-[560px] overflow-y-auto">
+                            <!-- Using user provided image -->
+                            <img src="assets/content-db.webp" loading="lazy" decoding="async" alt="Content DB — Thychef campaign detail showing sections A, B, C and the production audit log" class="lightbox-img cursor-zoom-in w-full h-auto" onerror="this.src='https://placehold.co/900x1600/111/333?text=Content+DB+Screenshot+Missing'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Influencer / KOL -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 bg-[#111] border-t border-gray-800">
+                <div class="lg:col-span-2 p-8 md:p-12 border-b border-gray-800 lg:border-b-0 lg:border-r order-2 lg:order-1">
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                        <span class="case-study-tag text-blue-300 border-blue-900">AI-Assisted Dev</span>
+                        <span class="case-study-tag text-gray-300 border-gray-700">Creator Hub</span>
+                        <span class="case-study-tag text-gray-300 border-gray-700">Database</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-2">Influencer / KOL Matrix</h4>
+                    <p class="text-sm text-gray-400 mb-4 leading-relaxed">
+                        A second, separate platform dedicated to the KOL pipeline — from briefing and asset uploading to performance tracking. It centralizes influencer communication plans and standardizes evaluation metrics for organic and paid reach.
+                    </p>
+                    <a href="https://github.com/WkWkp-Project/Creator-Hub" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-blue-400 hover:underline">
+                        View Source ↗
+                    </a>
+                </div>
+                <div class="lg:col-span-3 p-8 md:p-12 order-1 lg:order-2">
+                    <div class="border border-gray-800 rounded-lg overflow-hidden bg-black">
+                        <div class="flex items-center gap-1.5 px-3 py-2 bg-gray-900 border-b border-gray-800">
+                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-gray-700"></span>
+                            <span class="ml-2 text-[10px] text-gray-500 font-mono">influencer · KOL plan</span>
+                        </div>
+                        <div class="img-hover-zoom max-h-[560px] overflow-y-auto">
+                            <!-- Using user provided image -->
+                            <img src="assets/influencer.webp" loading="lazy" decoding="async" alt="Influencer/KOL Matrix dashboard" class="lightbox-img cursor-zoom-in w-full h-auto" onerror="this.src='https://placehold.co/900x1200/111/333?text=KOL+Matrix+Missing'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="campaigns">
+            <div class="p-8 md:p-12 border-b-grid bg-brand-bg flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <span class="font-mono text-xs text-brand-accent mb-2 block">// PART 02: PERFORMANCE ADS EXECUTION</span>
+                    <h3 class="font-serif text-3xl md:text-5xl font-bold">Selected Campaigns.</h3>
+                </div>
+                <p class="text-brand-muted text-sm max-w-md">
+                    Real-world applications of media buying strategies across Meta, Google, and TikTok. Focusing on rigorous A/B testing, funnel optimization, and measurable ROAS.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+
+                <!-- Campaign: Mahajak -->
+                <div class="p-8 md:p-12 border-b-grid lg:border-r-grid">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold font-serif mb-1">Mahajak Mega Deal</h4>
+                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">JBL | Harman/Kardon | JBL Quantum</p>
+                        </div>
+                        <span class="case-study-tag border-brand-border">Q4 2024 - Q1 2025</span>
+                    </div>
+
+                    <div class="img-hover-zoom mb-8 border border-gray-200 bg-gray-50 p-2 rounded">
+                        <img src="assets/mahajak.webp" loading="lazy" decoding="async" alt="Mahajak Report" class="lightbox-img cursor-zoom-in w-full h-auto rounded">
+                    </div>
+
+                    <div class="text-sm text-brand-text space-y-4">
+                        <p><strong>The Challenge:</strong> Drive massive awareness and sales across diverse electronic brands with distinct target audiences simultaneously.</p>
+                        <p><strong>The Strategy:</strong> Allocated a 1.15M THB budget across Meta, Google, and TikTok. Segmented audiences strictly by brand persona (Gamer for Quantum, Music Lover for JBL, Bookworm for Harman). Restructured Search/Shopping keywords to capture high-intent traffic.</p>
+
+                        <div class="grid grid-cols-2 gap-4 pt-6 border-t-grid font-mono text-sm mt-6">
+                            <div>
+                                <span class="text-brand-muted block text-xs mb-1">Peak ROAS</span>
+                                <strong class="text-brand-accent text-2xl">153.7x</strong>
+                            </div>
+                            <div>
+                                <span class="text-brand-muted block text-xs mb-1">Total Purchases</span>
+                                <strong class="text-2xl">708</strong>
+                                <span class="text-[10px] text-green-600 ml-1">(+271% KPI)</span>
+                            </div>
+                        </div>
+                        <a href="assets/mahajak-report-compact.pdf" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-brand-accent hover:underline pt-2">
+                            View Full Campaign Report (PDF, 10.5MB) ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Campaign: Dinosaur Rice -->
+                <div class="p-8 md:p-12 border-b-grid">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold font-serif mb-1">Dinosaur Rice (ข้าวไดโนเสาร์)</h4>
+                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">FMCG / Social Commerce Shift</p>
+                        </div>
+                        <span class="case-study-tag border-brand-border">Mid 2025</span>
+                    </div>
+
+                    <div class="img-hover-zoom mb-8 border border-gray-200 bg-gray-50 p-2 rounded">
+                        <img src="assets/dinosaur.webp" loading="lazy" decoding="async" alt="Rice Campaign" class="lightbox-img cursor-zoom-in w-full h-auto rounded">
+                    </div>
+
+                    <div class="text-sm text-brand-text space-y-4">
+                        <p><strong>The Challenge:</strong> Shift sales dependency from Marketplaces (Shopee/Lazada) to Direct-to-Consumer via Facebook Page.</p>
+                        <p><strong>The Strategy:</strong> Split content generation and ad targeting by generational behaviors (Gen X for direct product focus, Gen Y for lifestyle/cooking applications). Implemented strong CTA video assets to disrupt scrolling and drive immediate inbox inquiries.</p>
+
+                        <div class="grid grid-cols-2 gap-4 pt-6 border-t-grid font-mono text-sm mt-6">
+                            <div>
+                                <span class="text-brand-muted block text-xs mb-1">ROAS Range</span>
+                                <strong class="text-brand-accent text-2xl">1.0 - 18x</strong>
+                            </div>
+                            <div>
+                                <span class="text-brand-muted block text-xs mb-1">Lowest CPP (Gen X)</span>
+                                <strong class="text-2xl">฿21</strong>
+                            </div>
+                        </div>
+                        <a href="assets/dinosaur-rice-report-compact.pdf" target="_blank" class="inline-flex items-center gap-1 text-xs font-mono text-brand-accent hover:underline pt-2">
+                            View Full Campaign Report (PDF, 4MB) ↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Campaign: STAND -->
+                <div class="p-8 md:p-12 border-b-grid lg:border-b-0 lg:border-r-grid">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold font-serif mb-1">STAND Tools (iMAN)</h4>
+                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">B2B & B2C / Equipment</p>
+                        </div>
+                    </div>
+
+                    <div class="img-hover-zoom mb-8 border border-gray-200 bg-gray-50 p-2 rounded">
+                        <img src="assets/stand.webp" loading="lazy" decoding="async" alt="Stand Report" class="lightbox-img cursor-zoom-in w-full h-auto rounded">
+                    </div>
+
+                    <div class="text-sm text-brand-text space-y-4">
+                        <p><strong>Execution:</strong> Deployed "How to Use" video content for heavy tools (rotary drills, angle grinders) to build trust. Managed multi-channel E-commerce (Shopee, Lazada, TikTok) to capture converted traffic.</p>
+                        <div class="bg-gray-100 p-4 rounded font-mono text-xs border border-gray-200">
+                            <strong class="text-brand-accent block mb-1">Results:</strong>
+                            ROAS: 1.45 - 5.7x <br>
+                            Sales Growth: +58.1% (in 2 months)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campaign: Clinics & SEO -->
+                <div class="p-8 md:p-12">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold font-serif mb-1">My Life Clinic & SEO</h4>
+                            <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Healthcare / Lead Generation</p>
+                        </div>
+                    </div>
+
+                    <div class="text-sm text-brand-text space-y-6">
+                        <div>
+                            <h5 class="text-sm font-bold border-b border-brand-border pb-1 mb-2">Aesthetic & Physio Messaging</h5>
+                            <p class="text-brand-muted mb-2">Designed messaging objectives focused on high-ticket services (Sculptra, Filler) and rehabilitation appointments.</p>
+                            <ul class="font-mono bg-gray-100 p-4 rounded border border-gray-200 space-y-1">
+                                <li>Physio Cost/Convo: <strong class="text-brand-accent">฿62.40</strong> (229 Leads)</li>
+                                <li>Beauty Cost/Convo: <strong>฿104 - ฿1,999</strong></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h5 class="text-sm font-bold border-b border-brand-border pb-1 mb-3">SEO / GEO / AEO Evidence</h5>
+                            <p class="text-brand-muted mb-2">Extended keyword strategy beyond classic SEO into GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) — structuring content so it surfaces in AI-generated answers (Google AI Overviews, ChatGPT, etc.), guided by AI-assisted research rather than manual keyword tools alone.</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <img src="assets/seo-1.webp" loading="lazy" decoding="async" alt="SEO/GEO/AEO evidence 1" class="lightbox-img cursor-zoom-in border border-brand-border rounded w-full">
+                                <img src="assets/seo-2.webp" loading="lazy" decoding="async" alt="SEO/GEO/AEO evidence 2" class="lightbox-img cursor-zoom-in border border-brand-border rounded w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="max-w-[1400px] mx-auto border-x border-b border-brand-border bg-brand-text text-white p-12 text-center flex flex-col items-center justify-center mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4">Let's build something scalable.</h2>
+        <a href="https://pattmans.github.io/Jarupat-Khaohomklin-CV/" target="_blank" class="font-mono text-sm border border-white px-6 py-3 hover:bg-white hover:text-brand-text transition-colors mb-8">
+            Read My Full CV ↗
+        </a>
+        <p class="text-xs text-gray-500 font-mono tracking-widest uppercase">&copy; 2026 JARUPAT KHAOHOMKLIN</p>
+    </footer>
+
+    <!-- Lightbox overlay: click any project/campaign screenshot to view it enlarged -->
+    <div id="lightbox" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4 md:p-10 bg-black/90 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Enlarged image viewer">
+        <button id="lightbox-close" type="button" aria-label="Close" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-full border border-white/30 text-white text-xl hover:bg-white hover:text-black transition-colors">&times;</button>
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain rounded shadow-2xl">
+    </div>
+    <style>
+        #lightbox.flex { display: flex; }
+        #lightbox img { animation: lightbox-in 0.2s ease-out; }
+        @media (prefers-reduced-motion: reduce) {
+            #lightbox img { animation: none; }
+        }
+        @keyframes lightbox-in {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+    <script>
+        (function () {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            var closeBtn = document.getElementById('lightbox-close');
+
+            function openLightbox(src, alt) {
+                lightboxImg.src = src;
+                lightboxImg.alt = alt || '';
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('.lightbox-img').forEach(function (img) {
+                img.addEventListener('click', function () {
+                    openLightbox(img.src, img.alt);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
+            });
+        })();
+    </script>
+
+</body>
+</html>
